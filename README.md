@@ -5,10 +5,6 @@ This is a fully functional, resilient, self-initializing and customizable Javasc
 
 *browser limit on Google Chrome is 499
 
-The 1st edition code, that is fully functional on Google Chrome web browser, in conjunction with a PHP server, is available here:
-
-https://www.amazon.co.uk/dp/B07GHPRMYB
-
 (c) All files in this application have one author and are not open source:
 
 ////////////////////////////////////////////////////

@@ -1,0 +1,140 @@
+<!--
+////////////////////////////////////////////////////
+//************************************************//
+//******** This file is not free software ********//
+//************************************************//
+//********** (c) property of didlie.com **********//
+//******************** author ********************//
+//*** Christopher Isaac Krishna Jacobs Deilson ***//
+//************************************************//
+//* everforward@live.com // arvinsmail@gmail.com *//
+//************************************************//
+//*********** This file has one author.***********//
+//********* This file is not free to copy. *******//
+//* This file is not free to sell or distribute. *//
+//************ This files is not free ************//
+//*** to use as an executable or literary work ***//
+//************* in whole,or in part, *************//
+//******* in programs/ websites other than *******//
+//****************** didlie.com ******************//
+//** and in literary works, without the express **//
+//****** written and contractual permission ******//
+//********** of it's author: C.I.K.J.D. **********//
+//************************************************//
+////////////////////////////////////////////////////
+-->
+<html>
+<head>
+<script>
+performance.mark("1");
+</script>
+    <meta charset="utf-8">
+    <title>WebRTC p2p data</title>
+</head>
+<body>
+    <div id='header'>Page Load Time: </div>
+    <div id='ot'>ot div</div>
+    <div id='title'>Title</div>
+<div class="span12">
+  <fieldset class="well">
+      <div id='stopChat' style='display:none'>{Stop Chat}</div>
+    <p class="head muted">
+      <h1>Your name is:&nbsp;<span id='showId' style="color:blue;text-decoration:underline;"></span></h1>
+      <div id='nameDiv'><input id='userId' type='txt' maxlength="6" style="width:84px;"><button id="chngId">Change Your Name</button></div>
+    </p>
+    <p>
+    <div style="float:left; width:90%">
+        <div class="text-info" id="console" style="height:350px; width:100%; overflow:auto;"></div>
+    </div>
+    <div style="float:right; width:10%;">
+        <div id="members" width="100%"><h5>Friends</h5></div>
+        <div id="connections" width="100%"><h5>Connections</h5></div>
+    </div>
+    <div id='mssgForm'>
+        <input type='text' id='messageInput' maxlength='200'>
+        <button id='msgBtn'>Send Message</button>
+    </div>
+  </fieldset>
+      <!-- <button type="submit" id="joinChat" class="btn">Join Chat</button> -->
+      <script>
+    //  document.getElementById("joinChat").addEventListener("click",function(){joinRoom()});
+      </script>
+</div>
+<script src="classes/dClient.js"></script>
+<script src="classes/Peer.js"></script>
+<script src="classes/Mirror.js"></script>
+<script src="classes/joinRoom.js"></script>
+<script src="classes/IO.js"></script>
+<script src="classes/IO.relay.js"></script>
+<script src="classes/IO.switch.js"></script>
+<script src="classes/IO.cue.js"></script>
+<script src="classes/IO.cache.js"></script>
+<script src="classes/IO.connectRequest.js"></script>
+<script>
+var autostart = true;
+//ISSUES:
+//THIRD PEER DOESN'T GET OTHER PEER INI MESSAGE IF CONNECTED OUT OF TIME
+//
+//if no name, name is id, or name is name
+var connections = document.getElementById("connections");
+var members = document.getElementById("members");
+var nameDiv = document.getElementById('nameDiv');
+var userId = document.getElementById("userId");
+var showId = document.getElementById("showId");
+var chngId = document.getElementById("chngId");
+var titleDiv = document.getElementById("title");
+var otDiv = document.getElementById("ot");
+var pageHead = document.getElementById("header");
+var stopChatButton = document.getElementById("stopChat");
+var messageInput = document.getElementById('messageInput');
+var msgBtn = document.getElementById('msgBtn');
+var mssgForm = document.getElementById('mssgForm');
+var userConsole = document.getElementById("console");
+var maker = new Peer();
+var taker = new Peer();
+var _file_ = "mirror.php";
+var gPeer = [];//migrate gPeer handling to dClient
+var clientId = IO.newUid();
+var clientName = clientId;
+//add event listeners
+window.msgBtn.addEventListener('click',function(){ IO.doSay() });
+window.chngId.addEventListener("click",IO.updateUserNameDisplay);
+chngId.addEventListener("click",function(){
+    var _uid = IO.nameFilter(userId.value.trim());
+    if(!_uid) return false;
+    window.clientName = _uid;
+    if(name.length > 0){
+        IO.showUserId(_uid);
+        userId.disabled = true;
+        userId.style.display = "none";
+        chngId.style.display = "none";
+    }
+});
+
+
+var joiner = new joinRoom();
+
+
+
+
+//duplicate processes when using connectRequest && joinRoom auto-restart for answerer, and connectReqest answerer deoes an auto-restart
+
+
+
+
+window.onload = function(){if(autostart){
+    //id//
+        var x = showId.innerHTML;
+        name = (x.length > 0)? x : window.clientId;
+        IO.showUserId(name);//sets display
+    //id
+    //window.joinRoom();
+    performance.mark("2");
+    performance.measure("1-2","1","2");
+    var _mpage_ = performance.getEntriesByName("1-2")[0];
+    console.log(performance);
+    pageHead.innerHTML += "<br>" + _mpage_.duration;
+}};
+</script>
+</body>
+</html>

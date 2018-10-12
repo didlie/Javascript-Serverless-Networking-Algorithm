@@ -53,4 +53,7 @@ This is a fully functional, resilient, self-initializing and customizable Javasc
 
 ////////////////////////////////////////////////////
 
+The published algorithm and code can be purchased for legal verification of copyright, via Amazon:
+https://www.amazon.com/dp/1718165021/ref=rdr_ext_tmb
+
 

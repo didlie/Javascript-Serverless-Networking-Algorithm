@@ -1,4 +1,4 @@
-# Javascript_Serverless_Network
+# Javascript Serverless Networking Algorithm
 Javascript Serverless P2P Browser Network, using WebRTC and written in ECMAScript 6 and PHP 7
 
 This is a fully functional, resilient, self-initializing and customizable Javascript application that creates a chat / data network between an unlimited* number of WebRTC web-browser peers. The initial network introduction is mediated via a simple PHP "mirror".
